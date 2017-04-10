@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 def loadProperties() {
-    def proFile = file("../local.properties")
+    def proFile = file("../app/local.properties")
     Properties p = new Properties()
     proFile.withInputStream { stream->
         p.load(stream)
