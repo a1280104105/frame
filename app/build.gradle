@@ -41,7 +41,7 @@ android {
           def apk = output.outputFile
           if (apk != null && apk.name.endsWith('.apk')) {
           //  def fileName = "kangxiaobai_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
-            output.outputFile = new File(apk.parent + "/package", "ztsq.apk")
+            //output.outputFile = new File(apk.parent + "/package", "ztsq.apk")
             output.outputFile = new File(appReleaseDir + '/' + getDate(), "ztsq.apk")
           }
         }
