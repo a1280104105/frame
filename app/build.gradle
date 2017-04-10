@@ -36,6 +36,15 @@ android {
                     shrinkResources false  //去除无用的资源
                     minifyEnabled false //是否混淆
                     signingConfig signingConfigs.debug
+                       applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+          def apk = output.outputFile
+          if (apk != null && apk.name.endsWith('.apk')) {
+          //  def fileName = "kangxiaobai_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+            output.outputFile = new File(apk.parent + "/package", "ztsq.apk")
+          }
+        }
+      }
                 }
     }
         signingConfigs {
