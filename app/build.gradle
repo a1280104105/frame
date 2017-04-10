@@ -27,7 +27,13 @@ android {
     }
     buildTypes {
         release {
-           applicationVariants.all { variant ->
+          
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+          debug
+                {
+                 applicationVariants.all { variant ->
         variant.outputs.each { output ->
           def apk = output.outputFile
           if (apk != null && apk.name.endsWith('.apk')) {
@@ -37,11 +43,6 @@ android {
           }
         }
       }
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-          debug
-                {
                     zipAlignEnabled false
                     shrinkResources false  //去除无用的资源
                     minifyEnabled false //是否混淆
