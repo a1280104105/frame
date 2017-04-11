@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 ext.appReleaseDir = ""
+ext.appkey = ""
 
 def loadProperties() {
     def proFile = file("../app/local.properties")
@@ -9,6 +10,7 @@ def loadProperties() {
         p.load(stream)
     }
     appReleaseDir = p.appReleaseDir
+    appkey = p.appkey
 //    appVersionCode = Integer.valueOf(p.appVersionCode)
 //    appVersionName = p.appVersionName
 }
@@ -50,7 +52,7 @@ android {
     }
         signingConfigs {
           releaseConfig {
-            storeFile file("C\\:\\\\Users\\admin\\Desktop\\lhztsq.keystore")
+            storeFile file(appkey)
             storePassword "oSzcK7fSXgehI43i"
             keyAlias "ztsq"
             keyPassword "oSzcK7fSXgehI43i"
