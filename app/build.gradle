@@ -27,6 +27,18 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    
+        signingConfigs {
+          releaseConfig {
+            storeFile file(appkey)
+            storePassword "oSzcK7fSXgehI43i"
+            keyAlias "ztsq"
+            keyPassword "oSzcK7fSXgehI43i"
+        }
+        debug{
+           storeFile file("D:\\debug.keystore")
+        }
+    } 
     buildTypes {
         release {
          signingConfig signingConfigs.releaseConfig
@@ -50,17 +62,6 @@ android {
            signingConfig signingConfigs.debug
        }
     }
-        signingConfigs {
-          releaseConfig {
-            storeFile file(appkey)
-            storePassword "oSzcK7fSXgehI43i"
-            keyAlias "ztsq"
-            keyPassword "oSzcK7fSXgehI43i"
-        }
-        debug{
-           storeFile file("D:\\debug.keystore")
-        }
-    } 
 }
 
 
