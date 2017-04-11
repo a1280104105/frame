@@ -41,19 +41,16 @@ android {
         }
       }
         }
-          debug
-                {
-                 
-                    zipAlignEnabled false
-                    shrinkResources false  //去除无用的资源
-                    minifyEnabled false //是否混淆
-                    signingConfig signingConfigs.debug
-                    
-                }
+          debug {
+          zipAlignEnabled false
+          shrinkResources false  //去除无用的资源
+          minifyEnabled false //是否混淆
+           signingConfig signingConfigs.debug
+       }
     }
         signingConfigs {
           releaseConfig {
-            storeFile file("C:\\Users\\admin\\Desktop\\lhztsq.keystore")
+            storeFile file("C\\:\\\\Users\\admin\\Desktop\\lhztsq.keystore")
             storePassword "oSzcK7fSXgehI43i"
             keyAlias "ztsq"
             keyPassword "oSzcK7fSXgehI43i"
@@ -61,28 +58,7 @@ android {
         debug{
            storeFile file("D:\\debug.keystore")
         }
-
-    }
-    
-       //修改生成的apk名字
-    applicationVariants.all{ variant->
-        variant.outputs.each { output->
-            def oldFile = output.outputFile
-            def newName = '';
-             output.outputFile = new File(appReleaseDir + '/' + getDate(), "ztsq.apk")
-            if(variant.buildType.name.equals('release')){
-                // APK输出文件名规则：aiyou-版本名-市场-release.apk
-               // def releaseApkName = 'aiyou-' + appVersionName + '-' + variant.productFlavors[0].name + '-release.apk'
-                // appReleaseDir对应local.properties里面定义的路径，再加上日期（格式：201503011230）文件夹
-               // output.outputFile = new File(appReleaseDir + '/' + getDate(), releaseApkName)
-            }
-            if(variant.buildType.name.equals('beta')){
-            }
-            if(variant.buildType.name.equals('debug')){
-            
-            }
-        }
-    }
+    } 
 }
 
 
